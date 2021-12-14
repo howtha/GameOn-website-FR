@@ -14,6 +14,7 @@ const formData = document.querySelectorAll(".formData");
 
 var btnClose = document.getElementsByClassName("close");
 var firstName = document.getElementById("first");
+var lastName = document.getElementById("last");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -36,6 +37,11 @@ function closeModal()
 function validate()
 {
   if (firstName.value == NULL || firstName.value == "" || firstName.value.length < 2)
+  {
+    alert("Veuillez saisir 2 caractères minimum !");
+    return false;
+  }
+  if (lastName.value == NULL || lastName.value == "" || lastName.value.length < 2)
   {
     alert("Veuillez saisir 2 caractères minimum !");
     return false;
