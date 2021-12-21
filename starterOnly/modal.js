@@ -15,6 +15,8 @@ const formData = document.querySelectorAll(".formData");
 var btnClose = document.getElementsByClassName("close");
 var firstName = document.getElementById("first");
 var lastName = document.getElementById("last");
+var email = document.getElementById("email");
+var quantity = document.getElementById("quantity");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -36,17 +38,27 @@ function closeModal()
 // validation modal form
 function validate()
 {
-  if (firstName.value == NULL || firstName.value == "" || firstName.value.length < 2)
+  if (firstName.value == "" || firstName.value.length < 2)
   {
-    alert("Veuillez saisir 2 caractères minimum !");
+    alert("Veuillez saisir 2 caractères minimum pour le prénom !");
     return false;
   }
-  if (lastName.value == NULL || lastName.value == "" || lastName.value.length < 2)
+  if (lastName.value == "" || lastName.value.length < 2)
   {
-    alert("Veuillez saisir 2 caractères minimum !");
+    alert("Veuillez saisir 2 caractères minimum pour le nom !");
     return false;
   }
-  alert("ok");
+  if (!email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
+  {
+    alert("Veuillez saisir une adresse email valide !");
+    return false;
+  }
+  if (!quantity.value.match(/^([0-9]){1,2}$/)) //chiffre répété entre 1 & 2 fois
+  {
+    alert("Veuillez saisir une valeur numérique !");
+    return false;
+  }
+
 }
 
 
