@@ -17,6 +17,8 @@ var firstName = document.getElementById("first");
 var lastName = document.getElementById("last");
 var email = document.getElementById("email");
 var quantity = document.getElementById("quantity");
+var locationCity = document.getElementsByName("location");
+var checkBox1 = document.getElementById("checkbox1");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -56,6 +58,16 @@ function validate()
   if (!quantity.value.match(/^([0-9]){1,2}$/)) //chiffre répété entre 1 & 2 fois
   {
     alert("Veuillez saisir une valeur numérique !");
+    return false;
+  }
+  if (!(locationCity[0].checked || locationCity[1].checked || locationCity[2].checked || locationCity[3].checked || locationCity[4].checked || locationCity[5].checked))
+  {
+    alert("Veuillez cocher une case !")
+    return false;
+  }
+  if (!checkBox1.checked)
+  {
+    alert("Veuillez lire et accepter nos conditions d'utilisations !");
     return false;
   }
 
