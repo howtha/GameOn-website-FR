@@ -42,12 +42,12 @@ function validate()
 {
   if (firstName.value == "" || firstName.value.length < 2)
   {
-    alert("Veuillez saisir 2 caractères minimum pour le prénom !");
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     return false;
   }
   if (lastName.value == "" || lastName.value.length < 2)
   {
-    alert("Veuillez saisir 2 caractères minimum pour le nom !");
+    alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     return false;
   }
   if (!email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
@@ -62,15 +62,16 @@ function validate()
   }
   if (!(locationCity[0].checked || locationCity[1].checked || locationCity[2].checked || locationCity[3].checked || locationCity[4].checked || locationCity[5].checked))
   {
-    alert("Veuillez cocher une case !")
+    alert("Vous devez choisir une option.")
     return false;
   }
   if (!checkBox1.checked)
   {
-    alert("Veuillez lire et accepter nos conditions d'utilisations !");
+    alert("Vous devez vérifier que vous acceptez les termes et conditions.");
     return false;
   }
-
+  alert("Merci ! Votre réservation a été reçue.");
+  return true;
 }
 
 
