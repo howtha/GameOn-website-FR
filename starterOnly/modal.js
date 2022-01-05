@@ -42,7 +42,8 @@ function validate()
 {
   if (firstName.value == "" || firstName.value.length < 2)
   {
-    alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    //alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    firstName.innerHTML = "<br> Veuillez saisir !"
     return false;
   }
   if (lastName.value == "" || lastName.value.length < 2)
