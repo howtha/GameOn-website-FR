@@ -27,6 +27,9 @@ var emailErr = document.getElementById("emailErr");
 var quantityErr = document.getElementById("quantityErr");
 var locationErr = document.getElementById("locationErr");
 var checkbox1Err = document.getElementById("checkbox1Err");
+var birthdateErr = document.getElementById("birthdateErr");
+
+let check = true;
 
 
 // launch modal event
@@ -53,46 +56,87 @@ function validate()
   {
     //alert("Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
     firstNameErr.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom."
-    return false;
+    check = false;
   }
-  firstNameErr.style.display = "none";
+  else
+  {
+    firstNameErr.innerHTML = "Prénom valide !";
+  }
+
   if (lastName.value == "" || lastName.value.length < 2)
   {
     //alert("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
     lastNameErr.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom."
-    return false;
+    check = false;
   }
-  lastNameErr.style.display = "none";
+  else
+  {
+    lastNameErr.innerHTML = "Nom valide !";
+  }
+  
   if (!email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/))
   {
     //alert("Veuillez saisir une adresse email valide !");
     emailErr.innerHTML = "Veuillez saisir une adresse email valide !"
-    return false;
+    check = false;
   }
-  emailErr.style.display = "none";
+  else
+  {
+    emailErr.innerHTML = "Email valide !";
+  }
+
+  if (!birthdate.value.match(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/))
+  {
+    birthdateErr.innerHTML = "Veuillez saisir une date valide !";
+    check = false;
+  }
+  else
+  {
+    birthdateErr.innerHTML = "Date valide !";
+  }
+
   if (!quantity.value.match(/^([0-9]){1,2}$/)) //chiffre répété entre 1 & 2 fois
   {
     //alert("Veuillez saisir une valeur numérique !");
     quantityErr.innerHTML = "Veuillez saisir une valeur numérique !"
-    return false;
+    check = false;
   }
-  quantityErr.style.display = "none";
+  else
+  {
+    quantityErr.innerHTML = "Quantité valide !";
+  }
+
   if (!(locationCity[0].checked || locationCity[1].checked || locationCity[2].checked || locationCity[3].checked || locationCity[4].checked || locationCity[5].checked))
   {
     //alert("Vous devez choisir une option.")
     locationErr.innerHTML = "Vous devez choisir une option."
-    return false;
+    check = false;
   }
-  locationErr.style.display = "none";
+  else
+  {
+    locationErr.innerHTML = "Option valide !";
+  }
+
   if (!checkBox1.checked)
   {
     //alert("Vous devez vérifier que vous acceptez les termes et conditions.");
     checkbox1Err.innerHTML = "Vous devez choisir une option."
+    check = false;
+  }
+  else
+  {
+    checkbox1Err.innerHTML = "Option valide !"
+  }
+  
+  if (check == false)
+  {
     return false;
   }
-  checkbox1Err.style.display = "none";
-  alert("Merci ! Votre réservation a été reçue.");
-  return true;
+  else
+  {
+    alert("Merci ! Votre réservation a été reçue.");
+    return true;
+  }
 }
 
 

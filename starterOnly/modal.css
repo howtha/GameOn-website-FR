@@ -520,7 +520,7 @@ footer {
 .error
 {
   font-size : 15px;
-  color : red;
+  color : pink;
 }
 
 @keyframes modalopen {
